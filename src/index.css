@@ -1,6 +1,9 @@
 /*Google Font*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
 
+:root{
+  --primary: #8739f9;
+}
 
 body{
   background: #f1f1f1;
@@ -43,7 +46,7 @@ input {
 }
 
 button, form button{
-  background: #8739f9;
+  background: var(--primary);
   color: #fff;
   width: 100%;
   border-radius: 4px;
@@ -73,6 +76,36 @@ form {
 
 .product-list-link{
   text-decoration: none;
-  margin: auto 10px;
+  padding: 10px;
+  margin:  20px;
 
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  margin-top: 20px;
+  border-radius: 25px;
+}
+
+table th,
+table td {
+  padding: 10px;
+}
+
+table th {
+  background-color: var(--primary);
+  color: #fff;
+  text-align: left;
+}
+
+table td {
+  text-align: center;
+}
+
+.delete-btn, .edit-btn{
+  text-decoration: underline;
+  cursor: pointer;
 }

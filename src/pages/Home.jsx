@@ -21,9 +21,9 @@ const Home = () => {
   console.log(products);
   return (
     <div>
-      <div  className="product-list-link">
-        <Link to='/productlist' >Product List</Link>
-      </div>
+      
+        <Link to='/productlist' className="product-list-link">Product List</Link>
+      
       <Link to="/addproduct">
         <button
           style={{

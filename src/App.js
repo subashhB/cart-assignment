@@ -4,6 +4,7 @@ import AddProductPage from "./pages/AddProductPage";
 import CartPage from "./pages/CartPage";
 import Home from "./pages/Home";
 import ProductListPage from "./pages/ProductListPage";
+import EditProductPage from "./pages/EditProductPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/addproduct" element={<AddProductPage/>}/>
           <Route path="/cart" element={<CartPage/>}/>
           <Route path="/productlist" element={<ProductListPage/>}/>
+          <Route path="/editproduct/:id" element={ <EditProductPage/> }/>
         </Routes>
         </div>
       </BrowserRouter>

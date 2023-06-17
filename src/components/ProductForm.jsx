@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useProductContext } from "../hooks/useProductContext";
 import * as ActionTypes from "../context/actionTypes";
+import { useNavigate } from "react-router-dom";
 
-const AddProduct = () => {
+const ProductForm = ({ productToUpdate }) => {
+  const navigate = useNavigate();
   const { dispatch } = useProductContext();
   const initialState = {
     id: "",
@@ -18,7 +20,16 @@ const AddProduct = () => {
     product.quantity = parseInt(product.quantity);
     dispatch({ type: ActionTypes.CREATE_PRODUCT, payload: product });
     setProduct(initialState);
+    navigate('/');
   };
+
+  const handleEdit = (e)=>{
+    e.preventDefault();
+    product.quantity = parseInt(product.quantity);
+    console.log(product);
+    dispatch({ type: ActionTypes.EDIT_PRODUCT, payload: product });
+    navigate('/')
+  }
 
   const handleKeyPress = (event) => {
     const keyCode = event.keyCode || event.which;
@@ -30,8 +41,14 @@ const AddProduct = () => {
     }
   };
 
+  useEffect(()=>{
+    if(productToUpdate){
+      setProduct(productToUpdate);
+    }
+  },[productToUpdate])
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={productToUpdate? handleEdit: handleSubmit}>
       <input
         type="text"
         value={product.productName}
@@ -51,9 +68,9 @@ const AddProduct = () => {
         placeholder="Stock"
         required
       />
-      <button type="submit">Add Product</button>
+      <button type="submit">{ productToUpdate? 'Edit': 'Add'} Product</button>
     </form>
   );
 };
 
-export default AddProduct;
+export default ProductForm;
