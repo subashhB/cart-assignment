@@ -1,7 +1,17 @@
-const ProductList = () => {
+const ProductCard = ({ product }) => {
+  const { productName, quantity} = product;
+  const handleAddToCart = ()=>{
+
+  }
   return (
-    <div>ProductCard</div>
+    <div className="product-card">
+      <h3>
+        { productName }
+      </h3>
+      <p>Quantity: { quantity }</p>
+      <button onClick={ handleAddToCart }>Add To Card</button>
+    </div>
   )
 }
 
-export default ProductList
+export default ProductCard

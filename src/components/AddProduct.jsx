@@ -1,17 +1,23 @@
 import { useState } from "react";
+import { useProductContext } from "../hooks/useProductContext";
+import * as ActionTypes from "../context/actionTypes";
 
 const AddProduct = () => {
-  const [product, setProduct] = useState({
+  const { dispatch } = useProductContext();
+  const initialState = {
     id: "",
     productName: "",
     quantity: "",
-  });
+  };
+
+  const [product, setProduct] = useState(initialState);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     product.id = crypto.randomUUID();
     product.quantity = parseInt(product.quantity);
-    console.log(product);
+    dispatch({ type: ActionTypes.CREATE_PRODUCT, payload: product });
+    setProduct(initialState);
   };
 
   const handleKeyPress = (event) => {
@@ -38,7 +44,7 @@ const AddProduct = () => {
       <input
         type="text"
         value={product.quantity}
-        onKeyDown={ handleKeyPress }
+        onKeyDown={handleKeyPress}
         onChange={(e) => {
           setProduct({ ...product, quantity: e.target.value });
         }}

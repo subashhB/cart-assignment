@@ -9,7 +9,7 @@ const Navbar = () => {
         </Link>
         <nav>
             <div className="cart-navlink">
-                Cart
+                <Link to='/cart'>Cart</Link>
             </div>
         </nav>
       </div>

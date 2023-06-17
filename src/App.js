@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import AddProductPage from "./pages/AddProductPage";
 import CartPage from "./pages/CartPage";
 import Home from "./pages/Home";
+import ProductListPage from "./pages/ProductListPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/addproduct" element={<AddProductPage/>}/>
           <Route path="/cart" element={<CartPage/>}/>
+          <Route path="/productlist" element={<ProductListPage/>}/>
         </Routes>
         </div>
       </BrowserRouter>
