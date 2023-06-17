@@ -9,7 +9,7 @@ const ProductForm = ({ productToUpdate }) => {
   const initialState = {
     id: "",
     productName: "",
-    quantity: "",
+    stock: "",
   };
 
   const [product, setProduct] = useState(initialState);
@@ -17,7 +17,7 @@ const ProductForm = ({ productToUpdate }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     product.id = crypto.randomUUID();
-    product.quantity = parseInt(product.quantity);
+    product.stock = parseInt(product.stock);
     dispatch({ type: ActionTypes.CREATE_PRODUCT, payload: product });
     setProduct(initialState);
     navigate('/');
@@ -25,7 +25,7 @@ const ProductForm = ({ productToUpdate }) => {
 
   const handleEdit = (e)=>{
     e.preventDefault();
-    product.quantity = parseInt(product.quantity);
+    product.stock = parseInt(product.stock);
     console.log(product);
     dispatch({ type: ActionTypes.EDIT_PRODUCT, payload: product });
     navigate('/')
@@ -60,10 +60,10 @@ const ProductForm = ({ productToUpdate }) => {
       />
       <input
         type="text"
-        value={product.quantity}
+        value={product.stock}
         onKeyDown={handleKeyPress}
         onChange={(e) => {
-          setProduct({ ...product, quantity: e.target.value });
+          setProduct({ ...product, stock: e.target.value });
         }}
         placeholder="Stock"
         required

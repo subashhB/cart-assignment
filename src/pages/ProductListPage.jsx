@@ -6,10 +6,6 @@ import { Link } from "react-router-dom";
 const ProductListPage = () => {
   const {products, dispatch} = useProductContext();
 
-  const handleDelete = () =>{
-
-  }
-
   return (
     <div>
       <table>

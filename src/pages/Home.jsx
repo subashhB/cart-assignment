@@ -1,10 +1,8 @@
-import { useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 
-import * as ActionTypes from "../context/actionTypes";
 
-import { useProductContext } from "../hooks/useProductContext";
 import { Link } from "react-router-dom";
+import { useProductContext } from "../hooks/useProductContext";
 
 const ProductCardList = ({ products }) => {
   return (
