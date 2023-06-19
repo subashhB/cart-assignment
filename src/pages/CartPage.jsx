@@ -26,6 +26,10 @@ const CartItems = ({ cartItems, dispatch }) => {
     dispatch({type: CartActionTypes.REMOVE_ITEM, payload: cartItem});
   }
 
+  const handleCompleteOrder =()=>{
+    dispatch({type: CartActionTypes.COMPLETE_ORDER})
+  }
+
   return (
     <>
       <table>
@@ -54,7 +58,7 @@ const CartItems = ({ cartItems, dispatch }) => {
                     +
                   </span>
                 </td>
-                <td>{cartItem.product.price * cartItem.quantity} <button onClick={()=>{handleRemove(cartItem)}}>Remove</button></td>
+                <td>{cartItem.product.price * cartItem.quantity} <button onClick={()=>{handleRemove(cartItem)}} style={{width: '25%', marginLeft: '30px', background: 'red'}}>Remove</button></td>
               </tr>
             ))}
           </tbody>
@@ -64,6 +68,7 @@ const CartItems = ({ cartItems, dispatch }) => {
         <h3>Grand Total: </h3>
         {grandTotal}
       </div>
+      <button style={{width: '30%', marginLeft: '500px'}} onClick={ handleCompleteOrder }>Complete Order</button>
     </>
   );
 };
