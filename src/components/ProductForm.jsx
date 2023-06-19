@@ -63,7 +63,7 @@ const ProductForm = ({ productToUpdate }) => {
       />
       <input
         type="text"
-        value={product.quantity}
+        value={product.price}
         onKeyDown={handleKeyPress}
         onChange={(e) => {
           setProduct({ ...product, price: e.target.value });

@@ -32,7 +32,7 @@ header a {
 pages{
   max-width: 1400px;
   padding: 20px;
-  margin: 0 auto;
+  margin: 20 auto;
 }
 
 input {
@@ -105,7 +105,11 @@ table td {
   text-align: center;
 }
 
-.delete-btn, .edit-btn{
+.delete-btn{
+  text-decoration: underline;
+  cursor: pointer;
+} 
+.edit-btn{
   text-decoration: underline;
   cursor: pointer;
 }
@@ -113,4 +117,22 @@ table td {
 .cart-ops{
   cursor: pointer;
   margin: 10px;
+}
+
+.filterBar{
+  background: #fff;
+  max-width: 960px;
+  margin: 10px auto;
+  padding: 5px 20px;
+  border-radius: 10px;
+  display: flex;
+}
+
+select{
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 50%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }

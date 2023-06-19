@@ -23,8 +23,8 @@ const ProductListPage = () => {
               <tr key={product.id}>
                 <td>{ product.id }</td>
                 <td>{ product.productName }</td>
-                <td>{ product.quantity }</td>
-                <td> <p className="delete-btn" onClick={ ()=>{dispatch({type: ActionTypes.DELETE_PRODUCT, payload: product })} }>Delete</p>|<p className="edit-btn"><Link to={`/editproduct/${product.id}`} className="edit-btn">Edit</Link></p></td>
+                <td>{ product.stock }</td>
+                <td style={{display: 'flex', justifyContent: 'space-around', verticalAlign: 'center'}}> <p className="delete-btn" onClick={ ()=>{dispatch({type: ActionTypes.DELETE_PRODUCT, payload: product })} }>Delete</p><p className="edit-btn"><Link to={`/editproduct/${product.id}`} className="edit-btn">Edit</Link></p></td>
               </tr>
             )) }
           </tbody>

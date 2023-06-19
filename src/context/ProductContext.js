@@ -23,6 +23,7 @@ export const productsReducer = (state, action) => {
           product.id === action.payload.id ? action.payload: product
         )
       }
+
     default:
       return state;
   }
