@@ -109,3 +109,8 @@ table td {
   text-decoration: underline;
   cursor: pointer;
 }
+
+.cart-ops{
+  cursor: pointer;
+  margin: 10px;
+}

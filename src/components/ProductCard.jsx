@@ -3,7 +3,7 @@ import { useCartContext } from "../hooks/useCartContext";
 
 const ProductCard = ({ product }) => {
   const { dispatch} = useCartContext();
-  const { productName, quantity: stock} = product;
+  const { productName, stock, price} = product;
   const handleAddToCart = ()=>{
     const cartItem = {
       product,
@@ -16,6 +16,7 @@ const ProductCard = ({ product }) => {
       <h3>
         { productName }
       </h3>
+      <h5>Price(per Piece): { price }</h5>
       <p>Stock: { stock }</p>
       <button onClick={ handleAddToCart }>Add To Card</button>
     </div>

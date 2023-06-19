@@ -9,6 +9,7 @@ const ProductForm = ({ productToUpdate }) => {
   const initialState = {
     id: "",
     productName: "",
+    price: "",
     stock: "",
   };
 
@@ -17,19 +18,21 @@ const ProductForm = ({ productToUpdate }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     product.id = crypto.randomUUID();
+    product.price = parseInt(product.price);
     product.stock = parseInt(product.stock);
     dispatch({ type: ActionTypes.CREATE_PRODUCT, payload: product });
     setProduct(initialState);
-    navigate('/');
+    navigate("/");
   };
 
-  const handleEdit = (e)=>{
+  const handleEdit = (e) => {
     e.preventDefault();
+    product.price = parseInt(product.price);
     product.stock = parseInt(product.stock);
     console.log(product);
     dispatch({ type: ActionTypes.EDIT_PRODUCT, payload: product });
-    navigate('/')
-  }
+    navigate("/");
+  };
 
   const handleKeyPress = (event) => {
     const keyCode = event.keyCode || event.which;
@@ -41,14 +44,14 @@ const ProductForm = ({ productToUpdate }) => {
     }
   };
 
-  useEffect(()=>{
-    if(productToUpdate){
+  useEffect(() => {
+    if (productToUpdate) {
       setProduct(productToUpdate);
     }
-  },[productToUpdate])
+  }, [productToUpdate]);
 
   return (
-    <form onSubmit={productToUpdate? handleEdit: handleSubmit}>
+    <form onSubmit={productToUpdate ? handleEdit : handleSubmit}>
       <input
         type="text"
         value={product.productName}
@@ -56,6 +59,16 @@ const ProductForm = ({ productToUpdate }) => {
           setProduct({ ...product, productName: e.target.value });
         }}
         placeholder="Product Name"
+        required
+      />
+      <input
+        type="text"
+        value={product.quantity}
+        onKeyDown={handleKeyPress}
+        onChange={(e) => {
+          setProduct({ ...product, price: e.target.value });
+        }}
+        placeholder="Price(per Piece)"
         required
       />
       <input
@@ -68,7 +81,7 @@ const ProductForm = ({ productToUpdate }) => {
         placeholder="Stock"
         required
       />
-      <button type="submit">{ productToUpdate? 'Edit': 'Add'} Product</button>
+      <button type="submit">{productToUpdate ? "Edit" : "Add"} Product</button>
     </form>
   );
 };
